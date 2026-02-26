@@ -5,7 +5,7 @@
 ### Hierarchical Multi-Agent Reinforcement Learning<br>for Autonomous Security Operations Center Coordination
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nutthakorn7/HMARL-SOC-journal/blob/main/code/train_colab.ipynb)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-3776AB?logo=python&logoColor=white)](https://python.org)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](https://python.org)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org)
 [![Gymnasium](https://img.shields.io/badge/Gymnasium-0.29-0081A5?logo=openaigym&logoColor=white)](https://gymnasium.farama.org)
 [![IEEE Access](https://img.shields.io/badge/📄_Paper-IEEE_Access-00629B)](https://ieeeaccess.ieee.org)
@@ -108,8 +108,8 @@ git clone https://github.com/nutthakorn7/HMARL-SOC-journal.git
 cd HMARL-SOC-journal/code
 pip install -r requirements.txt
 
-# 🏋️ Train HMARL-SOC
-python train.py --config configs/default.yaml --episodes 10000 --seed 42
+# 🏋️ Train HMARL-SOC (optimized — 7× faster than legacy train.py)
+python train_fast.py --config configs/default.yaml --episodes 10000 --seed 42
 
 # 🆚 Train all baselines
 python train_baselines.py --episodes 10000 --seeds 42 123 456 789 1024
@@ -144,7 +144,8 @@ code/
 │   └── core/
 │       ├── replay_buffer.py          # Prioritized shared replay (200K)
 │       └── attention.py              # Multi-head attention explainer
-├── ⚡ train.py                       # Main training loop (Algorithm 1)
+├── ⚡ train_fast.py                  # Main training loop (optimized, Algorithm 1)
+├── 📜 train.py                       # Legacy training (deprecated)
 ├── 🆚 train_baselines.py             # All baselines (Rule-SOAR → QMIX)
 ├── 📊 evaluate.py                    # Metrics & evaluation
 ├── 🎨 generate_figures.py            # Reproduce all paper figures
