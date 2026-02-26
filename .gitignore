@@ -1,3 +1,7 @@
+# Paper (not published to repo)
+paper/
+*.zip
+
 # LaTeX auxiliary files
 *.aux
 *.log
